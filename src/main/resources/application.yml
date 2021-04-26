@@ -34,7 +34,7 @@ spring:
   datasource:
     url: jdbc:h2:mem:testdb
     driver-class-name: org.h2.Driver
-    username:
+    username: sa
     password:
 
 
@@ -51,6 +51,6 @@ spring:
 
 
 
-#spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+# spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
 
 
