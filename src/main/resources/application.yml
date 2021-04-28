@@ -49,7 +49,7 @@ spring:
       enabled: true
 
   profiles:
-    include: oauth
+    include: oauth  #oauth yml 설정포함
 
   session:
     store-type: jdbc

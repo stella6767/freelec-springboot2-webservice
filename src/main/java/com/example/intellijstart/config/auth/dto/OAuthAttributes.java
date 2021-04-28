@@ -29,6 +29,10 @@ public class OAuthAttributes {
             return ofNaver("id", attributes);
         }
 
+//        if(!registrationId.equals("google")){
+//            return ofNaver("id", attributes);
+//        }
+
         return ofGoogle(userNameAttributeName, attributes);
     }
 

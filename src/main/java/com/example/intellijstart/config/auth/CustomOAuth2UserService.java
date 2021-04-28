@@ -25,14 +25,22 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 
     @Override
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
+        System.out.println("OAuth 로그인 진행중................");
         OAuth2UserService delegate = new DefaultOAuth2UserService();
         OAuth2User oAuth2User = delegate.loadUser(userRequest);
 
         String registrationId = userRequest.getClientRegistration().getRegistrationId();
+        String registrationName = userRequest.getClientRegistration().getClientName();
+        System.out.println("id 값: " + registrationId);
+        System.out.println("클라이언트네임값: "+registrationName);
+
         String userNameAttributeName = userRequest.getClientRegistration().getProviderDetails()
                 .getUserInfoEndpoint().getUserNameAttributeName();
+        System.out.println("userNameAttributeName: "+userNameAttributeName);
 
         OAuthAttributes attributes = OAuthAttributes.of(registrationId, userNameAttributeName, oAuth2User.getAttributes());
+
+        System.out.println("oauth2.0 유저 속성: " + attributes.getName());
 
         User user = saveOrUpdate(attributes);
         httpSession.setAttribute("user", new SessionUser(user));
