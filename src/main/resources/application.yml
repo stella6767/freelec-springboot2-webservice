@@ -1,12 +1,11 @@
-#server:
-#  port: 8080
-#  servlet:
-#    context-path: /
-#    encoding:
-#      charset: utf-8
-#      enabled: true
-#    session:
-#      timeout: 60m
+server:
+  port: 8081
+  servlet:
+    context-path: /
+    encoding:
+      charset: utf-8
+      enabled: true
+
 
 #spring:
 #  datasource:
@@ -30,7 +29,6 @@
 #      fail-on-empty-beans: false
 
 spring:
-
   datasource:
     url: jdbc:h2:mem:testdb
     driver-class-name: org.h2.Driver
@@ -55,6 +53,17 @@ spring:
     store-type: jdbc
 
 
+#Test를 위해서 가짜로 설정값들을 집어넣어줌
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: test
+            client-secret: test
+            scope:
+              - email
+              - profile
 # spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
 
 
